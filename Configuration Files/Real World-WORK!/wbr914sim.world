@@ -1,0 +1,82 @@
+
+# Desc: PC-BOT Stage demo with lots of models
+
+# the size of a pixel in Stage's underlying raytrace model in meters
+resolution     0.2
+
+interval_sim 100  # milliseconds per update step
+interval_real 100 # real-time milliseconds per update step
+
+
+# defines PC-BOT robot
+include "wbr914.inc"
+
+# defines 'map' object used for floorplans
+include "map.inc"
+
+# defines the laser models `sick_laser' configured like a Sick LMS-200
+# and defines Hokuyo URG Laser
+#include "laser.inc"
+
+#defines the size of the world
+size [13.75 9.5 ]
+
+gui_disable 0
+gui_interval 100
+gui_menu_interval 20
+
+window( 
+  size [ 755.000 684.000 ] 
+#  size [ 500 500 ]
+  center [-7.707 2.553] 
+  scale 0.009 
+)
+
+#map( 
+#  bitmap "hospital_section.png" 
+#  map_resolution 0.02
+#  size [40 18] 
+#  name "hospital"
+#)
+
+map( 
+  bitmap "roboticLabMap.png" 
+  map_resolution 0.025
+  size [13.75 9.5]
+  name "roboticLab"
+)
+
+
+# a block for gripping
+define puck model(
+  size [ 0.08 0.08 ]
+  gripper_return 1
+  gui_movemask 3
+  gui_nose 0
+  fiducial_return 10
+)
+
+
+#puck( pose [-9.114 0.467 -105.501 ] color "red" )
+#puck( pose [-9.045 0.624 -37.717 ] color "purple" )
+#puck( pose [-8.959 0.752 -461.643 ] color "orange" )
+
+
+
+
+
+wbr914
+(
+  color "white"
+  name "wbr914_1"
+  pose [4.525 0.05 180]
+)
+
+#wbr914
+#(
+#  color "yellow"
+#  name "wbr914_2"
+#  pose [-6.492 2.156 -199.781]
+#)
+
+
